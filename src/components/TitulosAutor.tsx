@@ -18,11 +18,11 @@ export function TitulosAutor() {
         <span className='animate-spin'>
           <FaSpinner></FaSpinner>
         </span>
-        <span>Bootcamp desenvolvedor front-end com React (em curso) | </span>
+        <span>Bootcamp front-end com React (em curso) | </span>
         <span className='animate-spin'>
           <FaSpinner></FaSpinner>
         </span>
-        <span className=''>Brasas online english course (em curso)</span>
+        <span className=''>Brasas english course (em curso)</span>
       </div>
     </div>
   );
