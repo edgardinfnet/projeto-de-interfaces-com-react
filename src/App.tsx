@@ -1,7 +1,9 @@
 function App() {
   return (
     <div>
-      <h1>Olá React + Vite + TS</h1>
+      <h1 className='text-center font-bold p-10'>
+        Olá React + Vite + TS + Tailwind
+      </h1>
     </div>
   );
 }
