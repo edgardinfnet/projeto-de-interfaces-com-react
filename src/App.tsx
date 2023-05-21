@@ -1,11 +1,12 @@
-function App() {
+import { AppBar } from './components/AppBar';
+import { TitulosAutor } from './components/TitulosAutor';
+
+export default function App() {
   return (
     <div>
-      <h1 className='text-center font-bold p-10'>
-        Olá React + Vite + TS + Tailwind
-      </h1>
+      <AppBar></AppBar>
+      <TitulosAutor></TitulosAutor>
+      <h1 className='text-center font-bold p-10'>App.tsx</h1>
     </div>
   );
 }
-
-export default App;
