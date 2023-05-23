@@ -1,4 +1,4 @@
-import { FaSpinner } from 'react-icons/fa';
+import { CiTimer } from 'react-icons/ci';
 
 export function TitulosAutor() {
   return (
@@ -15,12 +15,12 @@ export function TitulosAutor() {
       </div>
 
       <div className='flex flex-row items-center justify-center gap-1'>
-        <span className='animate-spin'>
-          <FaSpinner></FaSpinner>
+        <span>
+          <CiTimer></CiTimer>
         </span>
         <span>Bootcamp front-end com React (em curso) | </span>
-        <span className='animate-spin'>
-          <FaSpinner></FaSpinner>
+        <span>
+          <CiTimer></CiTimer>
         </span>
         <span className=''>Brasas english course (em curso)</span>
       </div>
