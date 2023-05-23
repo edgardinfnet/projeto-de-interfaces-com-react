@@ -4,7 +4,7 @@ export function ProExperienceRoute() {
       <div className='text-gray-800'>
         <h3 className='text-2xl pb-2'>Experiência Profissional</h3>
         <div className='flex flex-row items-center gap-3'>
-          <div className=''>
+          <div className='ml-4'>
             <a
               href='https://www.ey.com/pt_br'
               target='_blank'

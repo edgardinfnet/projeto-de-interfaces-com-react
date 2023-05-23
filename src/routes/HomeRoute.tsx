@@ -3,7 +3,7 @@ export function HomeRoute() {
     <div className='lg:w-[48rem] m-auto pt-7'>
       <div className='text-gray-800'>
         <h3 className='text-2xl pb-2'>Quem eu sou</h3>
-        <div className='text-justify text-lg'>
+        <div className='text-justify text-lg ml-4'>
           <p className='pb-3'>
             Sou entusiasta ao desenvolvimento front-end, admirador do back-end e
             apreciador da linguagem SQL.
