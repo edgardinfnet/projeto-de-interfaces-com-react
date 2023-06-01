@@ -1,3 +1,8 @@
+import { Anchor } from '../components/Anchor';
+import { DivCard } from '../components/DivCard';
+import { DivTitulo } from '../components/DivTitulo';
+import { ImgEmpresa } from '../components/imgEmpresa';
+
 export function ProExperienceRoute() {
   const experiencias = [
     {
@@ -65,53 +70,37 @@ export function ProExperienceRoute() {
         'Como desenvolvedor fullstack participei de projetos para desenvolvimento de um sistemas voltado para smartfones utilizando HTML5, CSS, Javascript, jQuery, jQuery mobile, PHP, Postgresql e PostGIS. Tecnologias utilziadas: Web design responsivo, JQuery, JavaScript, CSS, PHP, PostgreSQL, HTML, jQuery móvel, PostGIS.',
     },
   ];
-
+  const title = 'Experiência Profissional';
   return (
     <div className='lg:w-[48rem] m-auto pt-7 mb-20'>
-      <div className='text-gray-800'>
-        <h3 className='text-2xl pb-2'>Experiência Profissional</h3>
+      <DivTitulo>{title}</DivTitulo>
 
-        {experiencias.map((experiencia) => (
-          <div
-            key={experiencia.id}
-            className='py-4 px-4 mb-4 mx-2 rounded overflow-hidden shadow-lg bg-gray-100'
-          >
-            <div className='flex flex-row items-center gap-3'>
-              <div className='ml-4'>
-                <a
-                  href={experiencia.url}
-                  className='cursor-pointer hover:text-cyan-600 hover:underline'
-                  target='_blank'
-                >
-                  <img
-                    className='rounded-full border-solid border-2 border-sky-800 hover:border-sky-400'
-                    src={experiencia.imagem}
-                    alt={experiencia.alt}
-                  ></img>
-                </a>
-              </div>
-              <div className='font-light'>
-                <p>
-                  <a
-                    href={experiencia.url}
-                    target='_blank'
-                    className='cursor-pointer hover:text-cyan-600 hover:underline'
-                  >
-                    {experiencia.empresa}
-                  </a>
-                </p>
-                <p>{experiencia.cargo}</p>
-                <p>{experiencia.modalidade}</p>
-                <p>{experiencia.periodo}</p>
-                <p>{experiencia.local}</p>
-              </div>
+      {experiencias.map((experiencia) => (
+        <DivCard key={experiencia.id}>
+          <div className='flex flex-row items-center gap-3'>
+            <div className='ml-4'>
+              <Anchor href={experiencia.url}>
+                <ImgEmpresa
+                  src={experiencia.imagem}
+                  alt={experiencia.alt}
+                ></ImgEmpresa>
+              </Anchor>
             </div>
-            <div className='pt-2 text-justify font-light'>
-              <p>{experiencia.descricao}</p>
+            <div>
+              <p>
+                <Anchor href={experiencia.url}>{experiencia.empresa}</Anchor>
+              </p>
+              <p>{experiencia.cargo}</p>
+              <p>{experiencia.modalidade}</p>
+              <p>{experiencia.periodo}</p>
+              <p>{experiencia.local}</p>
             </div>
           </div>
-        ))}
-      </div>
+          <div className='pt-2 text-justify font-light'>
+            <p>{experiencia.descricao}</p>
+          </div>
+        </DivCard>
+      ))}
     </div>
   );
 }
