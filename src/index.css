@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 body {
-  /* font-size: large; */
   background-color: #f8fafc;
+}
+
+.text-sm-alternative {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
 }
