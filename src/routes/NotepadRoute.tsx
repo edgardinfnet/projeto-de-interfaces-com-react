@@ -1,59 +1,36 @@
+import { useNavigate, useParams } from 'react-router-dom';
+import { DivCard } from '../components/DivCard';
 import { DivTitulo } from '../components/DivTitulo';
 import { useEffect, useState } from 'react';
 import { api } from '../api';
-import { Link } from 'react-router-dom';
-import { DivCard } from '../components/DivCard';
-import { CardLoading } from '../components/CardLoading';
 
-const iniNotepads: any[] = [];
-const iniLoading = true;
+const initialNotepad = {
+  id: 0,
+  title: '',
+  subtitle: '',
+  content: '',
+  created_at: '',
+};
 
 export function NotepadRoute() {
   const title = 'Notepad';
-  const [notepads, setNotepads] = useState(iniNotepads);
-  const [loading, setLoading] = useState(iniLoading);
+  const params = useParams();
+  const navigate = useNavigate();
+  const [notepad, setNotepad] = useState(initialNotepad);
 
-  async function loadNotepads() {
-    const response = await api.get('/notepads');
-    const nextNotepads = response.data.notepads;
-    setNotepads(nextNotepads);
+  async function loadNotepad() {
+    const response = await api.get(`/notepads/${params.id}`);
+    const nextNotepad = response.data;
+    setNotepad(nextNotepad);
   }
 
   useEffect(() => {
-    loadNotepads();
-  }, []);
-
-  useEffect(() => {
-    if (notepads.length > 0) {
-      setLoading(false);
-    }
-  }, [notepads]);
-
+    loadNotepad();
+  }, [params.id]);
   return (
-    <div>
-      <div className='lg:w-[48rem] m-auto pt-7 mb-20'>
-        <DivTitulo>{title}</DivTitulo>
-        {loading && <CardLoading></CardLoading>}
-        {notepads.map((notepad) => {
-          return (
-            <DivCard key={notepad.id}>
-              <Link
-                to={`/ver-notepad/${notepad.id}`}
-                key={notepad.id}
-                className='block cursor-pointer'
-              >
-                <div className='ml-4'>
-                  <h2 className='font-bold'>{notepad.title}</h2>
-                  <p className='text-sm-alternative'>
-                    {new Date(notepad.created_at).toLocaleDateString()}
-                  </p>
-                  <p>{notepad.subtitle}</p>
-                </div>
-              </Link>
-            </DivCard>
-          );
-        })}
-      </div>
+    <div className='lg:w-[48rem] m-auto pt-7 mb-20'>
+      <DivTitulo>{title}</DivTitulo>
+      <DivCard>{notepad.title}</DivCard>
     </div>
   );
 }

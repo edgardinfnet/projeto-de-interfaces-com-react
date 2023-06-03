@@ -7,6 +7,7 @@ import { AcademicEducationRoute } from './routes/AcademicEducationRoute';
 import { ProExperienceRoute } from './routes/ProExperienceRoute';
 import { ContactRoute } from './routes/ContactRoute';
 import { NotepadRoute } from './routes/NotepadRoute';
+import { NotepadsAllRoute } from './routes/NotepadsAllRoute';
 
 export default function App() {
   return (
@@ -30,9 +31,10 @@ export default function App() {
               element={<ContactRoute></ContactRoute>}
             ></Route>
             <Route
-              path='/Notepad'
-              element={<NotepadRoute></NotepadRoute>}
+              path='/Notepads'
+              element={<NotepadsAllRoute></NotepadsAllRoute>}
             ></Route>
+            <Route path='/notepad/:id' element={<NotepadRoute />} />
           </Routes>
           <NavBarFooter></NavBarFooter>
         </div>

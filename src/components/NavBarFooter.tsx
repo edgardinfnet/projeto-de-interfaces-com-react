@@ -28,10 +28,10 @@ export function NavBarFooter() {
         Contato
       </Link>
       <Link
-        to='/Notepad'
+        to='/Notepads'
         className='text-gray-50 cursor-pointer hover:text-cyan-200 hover:underline hover:animate-pulse'
       >
-        Notepad
+        Notepads
       </Link>
     </footer>
   );

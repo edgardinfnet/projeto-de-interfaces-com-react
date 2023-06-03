@@ -1,7 +1,7 @@
-import { Anchor } from '../components/Anchor';
+import { Link } from 'react-router-dom';
 import { DivCard } from '../components/DivCard';
 import { DivTitulo } from '../components/DivTitulo';
-import { ImgEmpresa } from '../components/imgEmpresa';
+import { ImgEmpresa } from '../components/ImgEmpresa';
 
 export function ProExperienceRoute() {
   const experiencias = [
@@ -74,21 +74,30 @@ export function ProExperienceRoute() {
   return (
     <div className='lg:w-[48rem] m-auto pt-7 mb-20'>
       <DivTitulo>{title}</DivTitulo>
-
       {experiencias.map((experiencia) => (
         <DivCard key={experiencia.id}>
           <div className='flex flex-row items-center gap-3'>
             <div className='ml-4'>
-              <Anchor href={experiencia.url}>
+              <Link
+                to={experiencia.url}
+                target='_blank'
+                className='hover:text-cyan-600 hover:underline'
+              >
                 <ImgEmpresa
                   src={experiencia.imagem}
                   alt={experiencia.alt}
                 ></ImgEmpresa>
-              </Anchor>
+              </Link>
             </div>
             <div>
               <p>
-                <Anchor href={experiencia.url}>{experiencia.empresa}</Anchor>
+                <Link
+                  to={experiencia.url}
+                  target='_blank'
+                  className='hover:text-cyan-600 hover:underline'
+                >
+                  {experiencia.empresa}
+                </Link>
               </p>
               <p>{experiencia.cargo}</p>
               <p>{experiencia.modalidade}</p>

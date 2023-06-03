@@ -1,8 +1,8 @@
-import { Anchor } from '../components/Anchor';
+import { Link } from 'react-router-dom';
 import { Cursos } from '../components/Cursos';
 import { DivCard } from '../components/DivCard';
 import { DivTitulo } from '../components/DivTitulo';
-import { ImgEmpresa } from '../components/imgEmpresa';
+import { ImgEmpresa } from '../components/ImgEmpresa';
 
 export function AcademicEducationRoute() {
   const formacao = [
@@ -53,16 +53,26 @@ export function AcademicEducationRoute() {
           <DivCard key={academica.id}>
             <div className='flex flex-row items-center gap-3'>
               <div className='ml-4'>
-                <Anchor href={academica.url}>
+                <Link
+                  to={academica.url}
+                  target='_blank'
+                  className='hover:text-cyan-600 hover:underline'
+                >
                   <ImgEmpresa
                     src={academica.imagem}
                     alt={academica.alt}
                   ></ImgEmpresa>
-                </Anchor>
+                </Link>
               </div>
               <div>
                 <p>
-                  <Anchor href={academica.url}>{academica.instituicao}</Anchor>
+                  <Link
+                    to={academica.url}
+                    target='_blank'
+                    className='hover:text-cyan-600 hover:underline'
+                  >
+                    {academica.instituicao}
+                  </Link>
                 </p>
                 <p>{academica.curso}</p>
                 <p>{academica.periodo}</p>

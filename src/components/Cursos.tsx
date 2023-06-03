@@ -1,4 +1,5 @@
 import { CiSquareCheck, CiTimer } from 'react-icons/ci';
+import { DivTitulo } from '../components/DivTitulo';
 
 const cursosExtras = [
   {
@@ -67,12 +68,13 @@ const cursosExtras = [
     concluido: true,
   },
 ];
+const title = 'Cursos Extras';
 
 export function Cursos() {
   return (
     <div className='lg:w-[48rem] m-auto pt-7 mb-20'>
-      <div className='text-gray-800'>
-        <h3 className='text-2xl pb-2'>Cursos Extras</h3>
+      <DivTitulo>{title}</DivTitulo>
+      <div className='text-gray-800 pb-2'>
         <div className='rounded overflow-hidden shadow-lg mb-4 ml-4 py-2 bg-gray-100'>
           {cursosExtras.map((extras) => (
             <div key={extras.id} className=''>
