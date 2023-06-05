@@ -45,7 +45,10 @@ export function NotepadsAllRoute() {
                 <div className='ml-4'>
                   <h2 className='font-bold'>{notepad.title}</h2>
                   <p className='text-sm-alternative'>
-                    {new Date(notepad.created_at).toLocaleDateString()}
+                    {new Date(notepad.created_at).toLocaleDateString() ===
+                    'Invalid Date'
+                      ? ''
+                      : new Date(notepad.created_at).toLocaleDateString()}
                   </p>
                   <p>{notepad.subtitle}</p>
                 </div>
