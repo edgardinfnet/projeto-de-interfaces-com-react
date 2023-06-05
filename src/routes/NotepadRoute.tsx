@@ -32,6 +32,7 @@ export function NotepadRoute() {
 
   async function deleteOneNotepad() {
     const response = await api.delete(`/notepads/${params.id}`);
+    setLoading(false);
     if (response.data.success === true) {
       toast('Deletado notepad');
       navigate('/Notepads');
@@ -45,7 +46,6 @@ export function NotepadRoute() {
   }, [params.id]);
 
   useEffect(() => {
-    console.log(oneNotepad.id);
     if (oneNotepad.id === 0) {
       setLoading(false);
     }
