@@ -1,12 +1,14 @@
 import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { CiCircleRemove, CiEdit, CiTrash } from 'react-icons/ci';
+import toast from 'react-simple-toasts';
+import { api } from '../api';
 import { DivCard } from '../components/DivCard';
 import { DivTitulo } from '../components/DivTitulo';
-import { useEffect, useState } from 'react';
-import { api } from '../api';
 import { CardLoading } from '../components/CardLoading';
-import { CiEdit, CiTrash } from 'react-icons/ci';
 import { Button } from '../components/Button';
-import toast from 'react-simple-toasts';
+import { ButtonLink } from '../components/ButtonLink';
+import { BreadCrumbs } from '../components/BreadCrumbs';
 
 const initialNotepad = {
   id: 0,
@@ -35,7 +37,7 @@ export function NotepadRoute() {
     setLoading(false);
     if (response.data.success === true) {
       toast('Deletado notepad');
-      navigate('/Notepads');
+      navigate('/notepads');
     } else {
       toast('Ops, ocorreu um erro :(');
     }
@@ -52,10 +54,18 @@ export function NotepadRoute() {
   }, [oneNotepad]);
 
   return (
-    <div className='lg:w-[48rem] m-auto pt-7 mb-20'>
+    <div className='lg:mx-auto sm:mx-3 lg:w-[48rem] m-auto pt-7 mb-20'>
       <DivTitulo>{title}</DivTitulo>
+      <BreadCrumbs
+        breadLinks={[
+          { to: '/notepads', label: 'notepads' },
+          {
+            to: `/notepad/${oneNotepad.id}`,
+            label: `notepad - ${oneNotepad.title}`,
+          },
+        ]}
+      ></BreadCrumbs>
       {loadingOneNotepad && <CardLoading></CardLoading>}
-
       <DivCard>
         <div className='ml-4'>
           <div>
@@ -66,19 +76,32 @@ export function NotepadRoute() {
                 ? ''
                 : new Date(oneNotepad.created_at).toLocaleDateString()}
             </p>
-            <p>{oneNotepad.subtitle}</p>
+            <p className='font-medium text-sm'>{oneNotepad.subtitle}</p>
+            <p>{oneNotepad.content}</p>
           </div>
 
           <div className='flex flex-row gap-2 mt-3'>
-            <Button className='bg-orange-500 text-slate-100 rounded px-3 py-3'>
+            <ButtonLink
+              to={`/editnotepad/${oneNotepad.id}`}
+              className={`bg-orange-500 hover:bg-orange-600 text-slate-100 flex flex-row items-center gap-1`}
+            >
               <CiEdit></CiEdit>
-            </Button>
+              <span className='font-extralight'>editar</span>
+            </ButtonLink>
             <Button
-              className='bg-red-600 text-slate-100 rounded px-3 py-3'
+              className='bg-red-600 hover:bg-red-700 text-slate-100 rounded px-3 py-3 flex flex-row items-center gap-1'
               onClick={deleteOneNotepad}
             >
               <CiTrash></CiTrash>
+              <span className='font-extralight'>deletar</span>
             </Button>
+            <ButtonLink
+              to={`/notepads`}
+              className={`bg-gray-300 hover:bg-gray-400 text-gray-900 flex flex-row items-center gap-1`}
+            >
+              <CiCircleRemove></CiCircleRemove>
+              <span className='font-extralight'>cancelar</span>
+            </ButtonLink>
           </div>
         </div>
       </DivCard>

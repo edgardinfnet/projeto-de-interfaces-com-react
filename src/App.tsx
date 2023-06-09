@@ -8,6 +8,8 @@ import { ProExperienceRoute } from './routes/ProExperienceRoute';
 import { ContactRoute } from './routes/ContactRoute';
 import { NotepadRoute } from './routes/NotepadRoute';
 import { NotepadsAllRoute } from './routes/NotepadsAllRoute';
+import { EditNotepadRoute } from './routes/EditarNotepadRoute';
+import { CreateNotePadRoute } from './routes/CreateNotepadRoute';
 
 export default function App() {
   return (
@@ -19,22 +21,27 @@ export default function App() {
           <Routes>
             <Route path='/' element={<HomeRoute></HomeRoute>}></Route>
             <Route
-              path='/AcademicEducation'
+              path='/academic-education'
               element={<AcademicEducationRoute></AcademicEducationRoute>}
             ></Route>
             <Route
-              path='/ProExperience'
+              path='/pro-experience'
               element={<ProExperienceRoute></ProExperienceRoute>}
             ></Route>
             <Route
-              path='/Contact'
+              path='/contact'
               element={<ContactRoute></ContactRoute>}
             ></Route>
             <Route
-              path='/Notepads'
+              path='/notepads'
               element={<NotepadsAllRoute></NotepadsAllRoute>}
             ></Route>
             <Route path='/notepad/:id' element={<NotepadRoute />} />
+            <Route path='/editnotepad/:id' element={<EditNotepadRoute />} />
+            <Route
+              path='create-notepad'
+              element={<CreateNotePadRoute></CreateNotePadRoute>}
+            ></Route>
           </Routes>
           <NavBarFooter></NavBarFooter>
         </div>

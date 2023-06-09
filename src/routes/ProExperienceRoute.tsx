@@ -72,7 +72,7 @@ export function ProExperienceRoute() {
   ];
   const title = 'Experiência Profissional';
   return (
-    <div className='lg:w-[48rem] m-auto pt-7 mb-20'>
+    <div className='lg:mx-auto sm:mx-3 lg:w-[48rem] m-auto pt-7 mb-20'>
       <DivTitulo>{title}</DivTitulo>
       {experiencias.map((experiencia) => (
         <DivCard key={experiencia.id}>

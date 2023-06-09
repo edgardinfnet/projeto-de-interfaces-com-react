@@ -47,7 +47,7 @@ export function AcademicEducationRoute() {
 
   return (
     <div>
-      <div className='lg:w-[48rem] m-auto pt-7'>
+      <div className='lg:mx-auto sm:mx-3 lg:w-[48rem] m-auto pt-7'>
         <DivTitulo>{title}</DivTitulo>
         {formacao.map((academica) => (
           <DivCard key={academica.id}>

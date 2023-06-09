@@ -1,6 +1,6 @@
 export function HomeRoute() {
   return (
-    <div className='lg:w-[48rem] m-auto pt-7'>
+    <div className='lg:mx-auto sm:mx-3 lg:w-[48rem] m-auto pt-7'>
       <div className='text-gray-800'>
         <h3 className='text-2xl pb-2'>Quem eu sou</h3>
         <div className='text-justify font-light text-lg py-4 px-4 mb-4 mx-2 rounded overflow-hidden shadow-lg bg-gray-100'>

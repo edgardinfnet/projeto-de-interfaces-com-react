@@ -10,25 +10,25 @@ export function NavBarFooter() {
         Início
       </Link>
       <Link
-        to='/ProExperience'
+        to='/pro-experience'
         className='text-gray-50 cursor-pointer hover:text-cyan-200 hover:underline hover:animate-pulse'
       >
         Experiências
       </Link>
       <Link
-        to='/AcademicEducation'
+        to='/academic-education'
         className='text-gray-50 cursor-pointer hover:text-cyan-200 hover:underline hover:animate-pulse'
       >
         Formação
       </Link>
       <Link
-        to='/Contact'
+        to='/contact'
         className='text-gray-50 cursor-pointer hover:text-cyan-200 hover:underline hover:animate-pulse'
       >
         Contato
       </Link>
       <Link
-        to='/Notepads'
+        to='/notepads'
         className='text-gray-50 cursor-pointer hover:text-cyan-200 hover:underline hover:animate-pulse'
       >
         Notepads
