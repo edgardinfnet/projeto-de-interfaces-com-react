@@ -40,7 +40,7 @@ export function ContactRoute() {
   });
 
   return (
-    <div className='lg:w-[48rem] m-auto pt-7'>
+    <div className='lg:mx-auto sm:mx-3 lg:w-[48rem] m-auto pt-7 mb-20'>
       <DivTitulo>{title}</DivTitulo>
 
       {loading && <CardLoading></CardLoading>}

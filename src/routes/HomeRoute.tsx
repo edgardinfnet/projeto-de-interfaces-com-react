@@ -1,9 +1,13 @@
+import { DivCard } from '../components/DivCard';
+import { DivTitulo } from '../components/DivTitulo';
+
 export function HomeRoute() {
+  const title = 'Quem sou';
   return (
-    <div className='lg:mx-auto sm:mx-3 lg:w-[48rem] m-auto pt-7'>
-      <div className='text-gray-800'>
-        <h3 className='text-2xl pb-2'>Quem eu sou</h3>
-        <div className='text-justify font-light text-lg py-4 px-4 mb-4 mx-2 rounded overflow-hidden shadow-lg bg-gray-100'>
+    <div className='lg:mx-auto sm:mx-3 lg:w-[48rem] m-auto pt-7 mb-20'>
+      <DivTitulo>{title}</DivTitulo>
+      <DivCard>
+        <div className='ml-4'>
           <p className='pb-3'>
             Sou entusiasta ao desenvolvimento front-end, admirador do back-end e
             apreciador da linguagem SQL.
@@ -22,7 +26,7 @@ export function HomeRoute() {
           </p>
           <p>Marido e PlayStation player nas horas vagas.</p>
         </div>
-      </div>
+      </DivCard>
     </div>
   );
 }
