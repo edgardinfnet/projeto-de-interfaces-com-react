@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { CiCircleRemove, CiFloppyDisk } from 'react-icons/ci';
 import toast from 'react-simple-toasts';
 import { useZorm } from 'react-zorm';
-import { NotepadFormSchema } from '../notepadFormSchema';
+import { SchemaFormNotepad } from '../SchemaFormNotepad';
 import { api } from '../api';
 import { DivTitulo } from '../components/DivTitulo';
 import { DivCard } from '../components/DivCard';
@@ -23,21 +23,26 @@ const initNotepad = {
 const iniLoadingOneNotepad = true;
 
 export function EditNotepadRoute() {
-  const title = `Notepads > Notepad ${initNotepad.id} > Editar Notepad`;
+  const title = `Editar Notepad`;
   const params = useParams();
   const navigate = useNavigate();
   const [initFormState, setInitFormState] = useState(initNotepad);
   const [loadingOneNotepad, setLoading] = useState(iniLoadingOneNotepad);
-  const zormNotepad = useZorm('edit-notepad', NotepadFormSchema, {
+  const zormNotepad = useZorm('edit-notepad', SchemaFormNotepad, {
     async onValidSubmit(event) {
       event.preventDefault();
-      const response = await api.patch(`/notepads/${params.id}`, event.data);
-      if (response.data.success) {
-        setLoading(false);
-        toast('Atualizado com sucesso :)');
-        navigate(`/notepad/${params.id}`);
-      } else {
-        toast('Erro não esperado :(');
+
+      try {
+        const response = await api.patch(`/notepads/${params.id}`, event.data);
+        if (response.data.success) {
+          setLoading(false);
+          toast('Atualizado com sucesso :)');
+          navigate(`/notepad/${params.id}`);
+        } else {
+          toast('Erro não esperado :(');
+        }
+      } catch (error) {
+        toast(`Erro inexperado (${error}) :( `);
       }
     },
   });

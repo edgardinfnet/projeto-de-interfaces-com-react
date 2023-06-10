@@ -1,6 +1,5 @@
 type ErrorMessageProps = {
-  //   children: React.ReactNode;
-  children: any;
+  children: React.ReactNode;
 };
 
 export function ErrorMessage({ children }: ErrorMessageProps) {

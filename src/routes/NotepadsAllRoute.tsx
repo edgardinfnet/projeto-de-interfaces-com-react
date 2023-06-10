@@ -43,7 +43,7 @@ export function NotepadsAllRoute() {
         <div className='flex flex-row gap-2 ml-4 mb-2'>
           <ButtonLink
             to='/create-notepad'
-            className='bg-sky-800 text-slate-100 flex flex-row items-center gap-1'
+            className='bg-sky-800 hover:bg-sky-900 text-slate-100 flex flex-row items-center gap-1'
           >
             <CiCirclePlus></CiCirclePlus>
             <span className='font-extralight'>criar</span>

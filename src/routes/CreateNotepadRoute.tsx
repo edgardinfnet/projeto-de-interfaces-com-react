@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CiCircleRemove, CiFloppyDisk } from 'react-icons/ci';
-import { AiOutlineRight } from 'react-icons/ai';
 import toast from 'react-simple-toasts';
-import { useZorm } from 'react-zorm';
 import { api } from '../api';
-import { NotepadFormSchema } from '../notepadFormSchema';
+import { useZorm } from 'react-zorm';
+import { SchemaFormNotepad } from '../SchemaFormNotepad';
 import { DivCard } from '../components/DivCard';
 import { DivTitulo } from '../components/DivTitulo';
 import { ErrorMessage } from '../components/ErrorMessage';
@@ -20,7 +19,7 @@ export function CreateNotePadRoute() {
   const title = 'Criar Notepad';
   const navigate = useNavigate();
   const [loading, setLoading] = useState(loadingNotepad);
-  const zormNotepad = useZorm('create-notepad', NotepadFormSchema, {
+  const zormNotepad = useZorm('create-notepad', SchemaFormNotepad, {
     async onValidSubmit(event) {
       event.preventDefault();
 
